@@ -1,0 +1,3 @@
+#/bin/bash
+
+docker run -v "$PWD":/home/myapp -w /home/myapp --privileged=true mydc:latest cp /home/myapp/* /home/
