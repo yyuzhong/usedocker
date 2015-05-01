@@ -1,3 +1,9 @@
 #/bin/bash
 
-docker run -v "$PWD":/home/myapp -w /home/myapp --privileged=true mydc:latest cp /home/myapp/* /home/
+docker ps -a | grep myrunning | awk '{print $1}' | xargs docker rm
+
+docker run --name myrunning -v "$PWD":/tmp/homework1 -w /tmp/homework1 --privileged=true mydc:latest cp -r /tmp/homework1 /home/
+
+docker rmi -f yyuzhong/homework1
+
+docker commit myrunning yyuzhong/homework1
