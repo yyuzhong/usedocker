@@ -1,0 +1,11 @@
+#/bin/bash
+
+docker ps -a | grep myrunning | awk '{print $1}' | xargs docker rm
+
+docker run --name myrunning -v "$PWD":/tmp/plhw -w /tmp/plhw --privileged=true yyuzhong/pvamucs:PL rsync -av --exclude=".*" /tmp/plhw /home/
+
+docker login -u yyanpvamu -p 197858yyz -e yyan@student.pvamu.edu
+docker rmi -f yyanpvamu/pvamucs:PL_HW1
+
+docker commit myrunning yyanpvamu/pvamucs:PL_HW1
+docker push yyanpvamu/pvamucs:PL_HW1
