@@ -1,0 +1,11 @@
+#/bin/bash
+
+docker ps -a | grep mydb | awk '{print $1}' | xargs docker stop
+
+docker login -u yyuzhong2 -p 197858yyz -e yyuzhong@gmail.com
+docker rmi -f yyuzhong2/pvamucs:DB_HW1
+
+docker commit mydb yyuzhong2/pvamucs:DB_HW1
+docker push yyuzhong2/pvamucs:DB_HW1
+
+docker ps -a | grep mydb | awk '{print $1}' | xargs docker rm

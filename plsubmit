@@ -9,3 +9,5 @@ docker rmi -f yyanpvamu/pvamucs:PL_HW1
 
 docker commit myrunning yyanpvamu/pvamucs:PL_HW1
 docker push yyanpvamu/pvamucs:PL_HW1
+
+
