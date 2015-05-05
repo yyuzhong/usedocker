@@ -1,0 +1,10 @@
+#/bin/bash
+
+docker login -u yyanpvamu -p pvamucs -e yyan@student.pvamu.edu
+docker rmi -f yyanpvamu/pvamucs:PL_HW1SH
+
+docker commit myplshell yyanpvamu/pvamucs:PL_HW1SH
+docker push yyanpvamu/pvamucs:PL_HW1SH
+
+docker ps -a | grep myplshell | awk '{print $1}' | xargs docker stop
+docker ps -a | grep myplshell | awk '{print $1}' | xargs docker rm

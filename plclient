@@ -1,0 +1,4 @@
+#/bin/bash
+
+docker ps -a | grep myclient | awk '{print $1}' | xargs docker rm
+docker run --name myclient --link myserver:myserver -v "$PWD":/tmp/plhw -w /tmp/plhw yyuzhong/pvamucs:PL $@

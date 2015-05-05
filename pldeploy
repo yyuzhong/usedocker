@@ -1,0 +1,4 @@
+#/bin/bash
+
+docker login -u yyuzhong -p pvamucs -e yyuzhong@hotmail.com
+docker push yyuzhong/pvamucs:PL
