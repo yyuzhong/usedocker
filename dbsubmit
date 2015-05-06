@@ -5,7 +5,7 @@ docker login -u yyuzhong2 -p pvamucs -e yyuzhong@gmail.com
 
 docker images | grep "DB_HW1" | awk '{print $3}' | xargs docker rmi -f
 
-docker exec -it mydbdaemon rsync -av --exclude=".*" /app/ /home/
+docker exec -it mydbdaemon rsync -av --exclude=".*" /app/ /home/dbhw/
 
 docker commit mydbdaemon yyuzhong2/pvamucs:DB_HW1
 docker push yyuzhong2/pvamucs:DB_HW1
