@@ -1,7 +1,14 @@
 #/bin/bash
 
-docker pull yyuzhong2/pvamucs:DB_HW1
 docker ps -a | grep mydbjudge | awk '{print $1}' | xargs docker stop
 docker ps -a | grep mydbjudge | awk '{print $1}' | xargs docker rm
+
+docker images | grep "<none>" | awk '{print $3}' | xargs docker rmi -f
+
+docker pull yyuzhong2/pvamucs:DB_HW1
+
 docker run --name mydbjudge -v "$PWD/web":/app -w /app -d -p 8007:80 -p 3306:3306 yyuzhong2/pvamucs:DB_HW1
-docker exec -it mydbjudge rsync -av /home/ /app
+
+docker exec -it mydbjudge rsync -av /home/dbhw/ /app/
+
+curl localhost:8007
