@@ -1,4 +1,4 @@
 #/bin/bash
 servername="myserver"
 echo $servername
-docker run -d --name $servername -v "$PWD":/tmp/plhw -w /tmp/plhw yyuzhong/pvamucs:PL $@
+docker run -d --name $servername -v "$PWD/src":/tmp/plhw -w /tmp/plhw yyuzhong/pvamucs:PL $@
