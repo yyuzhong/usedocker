@@ -1,6 +1,6 @@
 #/bin/bash
 
-docker login -u yyanpvamu -p 197858yyz -e yyan@student.pvamu.edu
+docker login -u yyanpvamu -p pvamucs -e yyan@student.pvamu.edu
 docker rmi -f yyanpvamu/pvamucs:PL_HW1SH
 
 docker commit myplshell yyanpvamu/pvamucs:PL_HW1SH

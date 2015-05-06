@@ -1,5 +1,6 @@
 #/bin/bash
 
-docker ps -a | grep mydb | awk '{print $1}' | xargs docker stop
-docker ps -a | grep mydb | awk '{print $1}' | xargs docker rm
-docker run --name mydb -v "$PWD/web":/app -w /app -d -p 8007:80 -p 3306:3306 yyuzhong2/pvamucs:DB_HW1
+docker ps -a | grep mydbjudge | awk '{print $1}' | xargs docker stop
+docker ps -a | grep mydbjudge | awk '{print $1}' | xargs docker rm
+docker run --name mydbjudge -v "$PWD/web":/app -w /app -d -p 8007:80 -p 3306:3306 yyuzhong2/pvamucs:DB_HW1
+docker exec -it mydbjudge rsync -av /home /app
