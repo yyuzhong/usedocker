@@ -1,3 +1,0 @@
-#/bin/bash
-
-docker run -d -v "$PWD":/home/myapp -w /home/myapp mydc:latest $@
