@@ -1,3 +1,4 @@
 #/bin/bash
 
+docker ps -a | grep myplshell | awk '{print $1}' | xargs docker rm
 docker run -i --name myplshell -v "$PWD":/tmp/plhw -w /tmp/plhw -t yyuzhong/pvamucs:PL $@

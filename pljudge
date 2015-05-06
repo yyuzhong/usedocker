@@ -1,3 +1,4 @@
 #/bin/bash
 
+docker pull yyanpvamu/pvamucs:PL_HW1
 docker run -w /home/plhw/ yyanpvamu/pvamucs:PL_HW1 $@

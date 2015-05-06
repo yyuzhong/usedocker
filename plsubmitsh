@@ -1,10 +1,12 @@
 #/bin/bash
 
 docker login -u yyanpvamu -p pvamucs -e yyan@student.pvamu.edu
-docker rmi -f yyanpvamu/pvamucs:PL_HW1SH
+docker images | grep "PL_HW1" | awk '{print $3}' | xargs docker rmi -f
 
-docker commit myplshell yyanpvamu/pvamucs:PL_HW1SH
-docker push yyanpvamu/pvamucs:PL_HW1SH
+docker commit myplshell yyanpvamu/pvamucs:PL_HW1
+docker push yyanpvamu/pvamucs:PL_HW1
 
 docker ps -a | grep myplshell | awk '{print $1}' | xargs docker stop
 docker ps -a | grep myplshell | awk '{print $1}' | xargs docker rm
+
+echo "Submit yyanpvamu/pvamucs:PL_HW1 to docker hub"

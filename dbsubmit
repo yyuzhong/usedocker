@@ -1,12 +1,14 @@
 #/bin/bash
 
-docker ps -a | grep mydb | awk '{print $1}' | xargs docker stop
 
 docker login -u yyuzhong2 -p pvamucs -e yyuzhong@gmail.com
 
-docker rmi -f yyuzhong2/pvamucs:DB_HW1
+docker images | grep "DB_HW1" | awk '{print $3}' | xargs docker rmi -f
 
-docker commit mydb yyuzhong2/pvamucs:DB_HW1
+docker exec -it mydbdaemon rsync -av --exclude=".*" /app /home/
+
+docker commit mydbdaemon yyuzhong2/pvamucs:DB_HW1
 docker push yyuzhong2/pvamucs:DB_HW1
 
-docker ps -a | grep mydb | awk '{print $1}' | xargs docker rm
+docker ps -a | grep mydbdaemon | awk '{print $1}' | xargs docker stop
+docker ps -a | grep mydbdaemon | awk '{print $1}' | xargs docker rm
