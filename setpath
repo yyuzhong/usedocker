@@ -1,6 +1,4 @@
 #/bin/bash
 
-export PATH=$PATH:$PWD
-echo "#!/bin/bash" > env.ini
-echo "WORKDIR=$PWD" >> env.ini
-chmod +x env.ini
+WORKDIR=$PWD
+export PATH=$PATH:$WORKDIR

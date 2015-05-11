@@ -1,3 +1,5 @@
 #/bin/bash
 
+WORKDIR=$(dirname $0)
+
 docker run -v "$WORKDIR/src":/tmp/plhw -w /tmp/plhw yyuzhong/pvamucs:PL $@

@@ -1,3 +1,10 @@
 #/bin/bash
 
+SAVEDIR=$PWD
+
+WORKDIR=$(dirname $0)
+cd $WORKDIR
+
 docker build -f db/Dockerfile -t yyuzhong/pvamucs:DB .
+
+cd $SAVEDIR
