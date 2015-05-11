@@ -1,4 +1,4 @@
 #/bin/bash
 
 docker ps -a | grep myrunning | awk '{print $1}' | xargs docker rm
-docker run --name myrunning --link myserver:myserver -v "$PWD/src":/tmp/plhw -w /tmp/plhw yyuzhong/pvamucs:PL $@
+docker run --name myrunning --link myserver:myserver -v "$WORKDIR/src":/tmp/plhw -w /tmp/plhw yyuzhong/pvamucs:PL $@

@@ -2,4 +2,4 @@
 
 docker ps -a | grep mydbdaemon | awk '{print $1}' | xargs docker stop
 docker ps -a | grep mydbdaemon | awk '{print $1}' | xargs docker rm
-docker run --name mydbdaemon -v "$PWD/web":/app -w /app -d -p 8007:80 -p 3306:3306 yyuzhong/pvamucs:DB
+docker run --name mydbdaemon -v "$WORKDIR/web":/app -w /app -d -p 8007:80 -p 3306:3306 yyuzhong/pvamucs:DB

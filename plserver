@@ -5,4 +5,4 @@ echo $servername
 docker ps -a | grep myserver | awk '{print $1}' | xargs docker stop
 docker ps -a | grep myserver | awk '{print $1}' | xargs docker rm
 
-docker run -d --name $servername -v "$PWD/src":/tmp/plhw -w /tmp/plhw yyuzhong/pvamucs:PL $@
+docker run -d --name $servername -v "$WORKDIR/src":/tmp/plhw -w /tmp/plhw yyuzhong/pvamucs:PL $@

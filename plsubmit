@@ -6,7 +6,7 @@ docker ps -a | grep myrunning | awk '{print $1}' | xargs docker rm
 docker login -u yyanpvamu -p pvamucs -e yyan@student.pvamu.edu
 docker images | grep "PL_HW1" | awk '{print $3}' | xargs docker rmi -f
 
-docker run --name myrunning -v "$PWD/src":/tmp/plhw -w /tmp/plhw --privileged=true yyuzhong/pvamucs:PL rsync -av --exclude=".*" /tmp/plhw /home/
+docker run --name myrunning -v "$WORKDIR/src":/tmp/plhw -w /tmp/plhw --privileged=true yyuzhong/pvamucs:PL rsync -av --exclude=".*" /tmp/plhw /home/
 
 docker commit myrunning yyanpvamu/pvamucs:PL_HW1
 docker push yyanpvamu/pvamucs:PL_HW1

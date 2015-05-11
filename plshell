@@ -2,4 +2,4 @@
 
 docker ps -a | grep myplshell | awk '{print $1}' | xargs docker rm
 
-docker run -i --name myplshell -v "$PWD/src":/tmp/plhw -w /tmp/plhw -t yyuzhong/pvamucs:PL $@
+docker run -i --name myplshell -v "$WORKDIR/src":/tmp/plhw -w /tmp/plhw -t yyuzhong/pvamucs:PL $@
