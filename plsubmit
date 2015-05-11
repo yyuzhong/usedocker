@@ -1,6 +1,6 @@
 #/bin/bash
 
-WORKDIR=$(dirname $0)
+WORKDIR=$( cd $(dirname $0) ; pwd -P)
 
 docker ps -a | grep myrunning | awk '{print $1}' | xargs docker stop
 docker ps -a | grep myrunning | awk '{print $1}' | xargs docker rm

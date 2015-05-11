@@ -2,7 +2,7 @@
 
 SAVEDIR=$PWD
 
-WORKDIR=$(dirname $0)
+WORKDIR=$( cd $(dirname $0) ; pwd -P)
 cd $WORKDIR
 
 docker build -f pl/Dockerfile -t yyuzhong/pvamucs:PL .
